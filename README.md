@@ -1,95 +1,58 @@
-
------
-
 # X UI Clone
 
-This is a high-fidelity, static front-end clone of the X (formerly Twitter) user interface. It is built purely with **HTML** and **Tailwind CSS**.
+A high-fidelity, static front-end clone of the X (formerly Twitter) user interface. It is built purely with **HTML** and **Tailwind CSS**, focusing on replicating the complex responsive layout and component styles.
 
-The project meticulously replicates the three-column layout of the main feed page, serving as an excellent case study for advanced Tailwind CSS usage, responsive design, and custom theme configuration.
+### Disclaimer: Educational Purposes Only
+
+This project is a static, non-functional clone of the X (formerly Twitter) user interface, created purely for educational purposes and to demonstrate front-end development skills. It was built to practice and showcase proficiency in HTML and advanced Tailwind CSS.
+
+This project is not affiliated with, endorsed by, or connected to X Corp. in any way. All trademarks, logos, and brand assets are the property of their respective owners.
 
 -----
 
 ## Features
 
-This static clone visually represents the core X UI, including:
-
-  * **Responsive Three-Column Layout**: The layout adapts smoothly from mobile to large desktop screens using Tailwind's responsive breakpoints.
-  * **Left Navigation Sidebar**:
-      * Icon-only and expanded views for navigation links (Home, Explore, Notifications, Messages, etc.).
-      * "Post" button.
-      * User profile section at the bottom.
-  * **Main Content Feed**:
-      * Sticky header with "For You" and "Following" tabs.
-      * "What's happening?" tweet composition box.
-      * A scrollable feed populated with static sample posts, complete with user info, images, and action icons (reply, repost, like, etc.).
-  * **Right Discovery Sidebar**:
-      * Sticky "Search" bar.
-      * "Subscribe to Premium" promotional card.
-      * "Today's News" card.
-      * "What's happening" card for trends.
-      * "Who to Follow" suggestions card.
-
-*Note: This is a static project for visual demonstration. All links, buttons, and input fields are non-functional.*
-
------
+  * **Responsive Three-Column Layout**: Faithfully recreates the main feed's layout, adapting from mobile to large desktop screens using Tailwind's breakpoints.
+  * **Left Navigation Sidebar**: Includes an icon-only view and an expanded view for navigation links, the "Post" button, and the user profile menu.
+  * **Main Content Feed**: A scrollable feed with a sticky header ("For You", "Following"), a "What's happening?" composition box, and multiple static sample posts.
+  * **Right Discovery Sidebar**: Features the "Subscribe to Premium", "Today's News", "What's happening" (Trends), and "Who to Follow" components, with a sticky search bar.
 
 ## Tech Stack
 
-  * **HTML5**: Provides the semantic structure for the web page.
-  * **Tailwind CSS**: Used for all styling, from basic layout and typography to complex, responsive components.
-  * **npm**: Used as a package manager to handle the Tailwind CSS dependency.
+  * **HTML5**: Semantic structure for all content.
+  * **Tailwind CSS**: Used for all styling, layout, and responsiveness.
+  * **npm**: For managing development dependencies (Tailwind).
 
 ### Tailwind CSS Configuration
 
-This project utilizes a well-structured Tailwind setup:
+The project utilizes a custom-configured Tailwind setup via `src/input.css`:
 
-  * **`src/input.css`**: This is the main source file for styling.
-      * `@import "tailwindcss"`: Imports Tailwind's base, component, and utility layers.
-      * `@theme`: Defines a custom theme, including:
-          * **Custom Fonts**: Configures the "Chirp" font family (the actual X font).
-          * **Custom Colors**: Defines project-specific colors like `--color-primary`, `--color-disabled`, and various hover-state colors.
-          * **Custom Breakpoints**: Adds a `vsm` (very small) breakpoint.
-      * `@layer components`: Uses `@apply` to create custom, reusable component classes like `.side-items` and `.post-footer-icons`.
-  * **`package.json`**:
-      * Includes a `build` script to compile the CSS.
-      * `"build": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"`.
-  * **`src/output.css`**: The compiled, production-ready CSS file that is linked in `index.html`.
+  * `@theme`: Defines custom project colors (like `--color-primary`), fonts (`Chirp`), and breakpoints.
+  * `@layer components`: Uses `@apply` to create reusable component classes like `.side-items` and `.post-footer-icons`.
 
 -----
 
 ## Folder Structure
 
-The repository is organized as follows:
-
 ```
 x-clone/
 ├── .gitignore
-├── index.html            // The main HTML file for the UI clone
+├── index.html            // The main feed page
 ├── new.html              // An additional HTML file
+├── package.json          // Project scripts and dependencies
 ├── package-lock.json
-├── package.json          // Defines project scripts and dependencies
+├── vercel.json           // Vercel deployment configuration
 └── src/
     ├── assets/
-    │   ├── fonts/        // Contains custom web fonts
-    │   │   ├── Chirp-Bold.woff2
-    │   │   ├── Chirp-Heavy.woff2
-    │   │   ├── Chirp-Medium.woff2
-    │   │   └── Chirp-Regular.woff2
-    │   └── images/       // Contains all images for posts, profiles, and UI
-    │       ├── follow1.jpg
-    │       ├── news1p1.jpg
-    │       ├── post1main.jpeg
-    │       ├── profile.png
-    │       └── ... (and many more)
-    ├── input.css         // The source Tailwind CSS file with custom config
-    └── output.css        // The compiled CSS file (gitignored, generated by build)
+    │   ├── fonts/        // Custom web fonts (Chirp)
+    │   └── images/       // All static images for the UI
+    ├── input.css         // The source Tailwind CSS file
+    └── output.css        // The compiled CSS file (gitignored)
 ```
 
 -----
 
-## How to Use
-
-To run this project locally, you'll need to compile the Tailwind CSS.
+## Running Locally
 
 1.  **Clone the repository:**
 
@@ -99,22 +62,20 @@ To run this project locally, you'll need to compile the Tailwind CSS.
     ```
 
 2.  **Install dependencies:**
-    (Ensure you have [Node.js](https://nodejs.org/) installed)
+    (Requires [Node.js](https://nodejs.org/) to be installed)
 
     ```sh
     npm install
     ```
 
-3.  **Run the Tailwind build script:**
-    This command will compile the `src/input.css` into `src/output.css` and watch for any changes you make to the source CSS or HTML files.
+3.  **Build and Watch:**
+    Run the Tailwind build script. This will compile `src/input.css` to `src/output.css` and watch for changes as you edit the files.
 
     ```sh
     npm run build
     ```
 
-4.  **View the project:**
-    Simply open the `index.html` file in your web browser to see the X clone.
+    *(Note: The `build` script in `package.json` is `"npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"`)*
 
-**Disclaimer: Educational Purposes Only**
-This project is a static, non-functional clone of the X (formerly Twitter) user interface, created purely for educational purposes and to demonstrate front-end development skills. It was built to practice and showcase proficiency in HTML and advanced Tailwind CSS.
-This project is not affiliated with, endorsed by, or connected to X Corp. in any way. All trademarks, logos, and brand assets are the property of their respective owners.
+4.  **View the project:**
+    Open the `index.html` file in your browser.
