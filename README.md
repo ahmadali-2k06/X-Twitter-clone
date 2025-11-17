@@ -114,3 +114,7 @@ To run this project locally, you'll need to compile the Tailwind CSS.
 
 4.  **View the project:**
     Simply open the `index.html` file in your web browser to see the X clone.
+
+**Disclaimer: Educational Purposes Only**
+This project is a static, non-functional clone of the X (formerly Twitter) user interface, created purely for educational purposes and to demonstrate front-end development skills. It was built to practice and showcase proficiency in HTML and advanced Tailwind CSS.
+This project is not affiliated with, endorsed by, or connected to X Corp. in any way. All trademarks, logos, and brand assets are the property of their respective owners.
